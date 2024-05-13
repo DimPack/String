@@ -104,13 +104,6 @@ console.log(palindrome(stringTest));
 const strTest = 'I sometimes discuss her style and ideas with my sister. Literature, cooking, TV — I have a lot of topics to talk about and make new friends.';
 
 function wordLongest(string) {
-    let str = string.split(' ');
-    let longest = '';
-    for(let i = 0; i < str.length; i++) {
-        if (str[i].length > longest.length) {
-            longest = str[i];
-        }
-    }
-    return longest;
+    return string.split(' ').reduce((longest, string) => string.length > longest.length ? string : longest, '');
 }
 console.log(wordLongest(strTest));
