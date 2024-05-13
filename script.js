@@ -19,22 +19,16 @@ let stringsHref = [
 "http://reddit.com&quot;",
 "https://medium.com&quot;"
 ];
-
-
-
 const searchTextStart = "http://";
 
 //це такий метод знайшов 
 const filteredStringsHref = stringsHref.filter(item => item.startsWith(searchTextStart));
 stringsHref = filteredStringsHref.slice();
 console.log(stringsHref);
-
 // так на початку зробив 
 /*const  filteredStringsHref  = stringsHref.filter(item => item.includes(searchTextStart));
 stringsHref = filteredStringsHref.slice();
 console.log(stringsHref);*/
-
-
 
 // 2) Є масив з рядками. Залиште в цьому масиві тільки ті рядки, які закінчуються на .html
 let fileNames = [
@@ -54,7 +48,6 @@ let fileNames = [
 "terms.html",
 "privacy-policy.html"
 ];
-
 const searchTextEnd = ".html";
 const newFileNames = fileNames.filter(item => item.endsWith(searchTextEnd));
 fileNames = newFileNames.slice();
@@ -104,13 +97,6 @@ console.log(palindrome(stringTest));
 const strTest = 'I sometimes discuss her style and ideas with my sister. Literature, cooking, TV — I have a lot of topics to talk about and make new friends.';
 
 function wordLongest(string) {
-    let str = string.split(' ');
-    let longest = '';
-    for(let i = 0; i < str.length; i++) {
-        if (str[i].length > longest.length) {
-            longest = str[i];
-        }
-    }
-    return longest;
+    return string.split(' ').reduce((longest, string) => string.length > longest.length ? string : longest, '');
 }
 console.log(wordLongest(strTest));
